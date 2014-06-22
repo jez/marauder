@@ -8,7 +8,7 @@ mapContainerTemplate =
 
 popupTemplate =
 '''
-<div class="popup bg-<%= color %>">
+<div class="popup bg-gray">
   <%= popupContent %>
 </div>
 '''
@@ -49,16 +49,22 @@ glanceView = ($container) ->
       height: '100%'
   $container.css 'overflow-x', 'hidden'
 
-addPopup = ($triggerNode, popupContent, color='gray') ->
+addPopup = ($triggerNode, popupContent, popupWidth=200, popupHeight=200) ->
   popup = _.template popupTemplate,
     popupContent: popupContent
-    color: color
   $triggerNode.hammer().on 'tap', (ev) ->
-    $popup = $(popup)
+    $popup = $(popup).width popupWidth
+                     .height popupHeight
     if $('.popup').length > 0
       $('.popup').remove()
-    $popup.css 'left', ev.gesture.center.pageX
-    $popup.css 'top', ev.gesture.center.pageY
+    popupLeft = ev.gesture.center.pageX
+    popupTop = ev.gesture.center.pageY
+    if popupLeft + popupWidth > $('body').width()
+      popupLeft -= popupWidth
+    if popupTop + popupHeight > $('body').height()
+      popupTop -= popupHeight
+    $popup.css 'left', popupLeft
+    $popup.css 'top', popupTop
     $('#popups').append $popup
 
 init = ($container) ->
@@ -70,6 +76,7 @@ init = ($container) ->
       color: color
       index: index+1)
     $container.append $map
+    addPopup $map, 'Foo bar'
 
   glanceView $container
 
