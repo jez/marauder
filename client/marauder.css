@@ -1,7 +1,31 @@
 html {
   background-color: #F90;
 }
-h3 {
+
+.header {
+  font-size: 32px;
+  color: #EEE;
+  font-weight: 300;
+  text-align: center;
+  margin: 0.4em 0;
+}
+
+.login-header {
+  font-size: 38px;
+  position: absolute;
+  top: 100px;
+  font-style: italic;
+  margin: 10px;
+}
+
+#login-buttons {
+  padding: 20px;
+  background: #555;
+  color: white;
+  top: 350px;
+  position: relative;
+  margin: 10px 50px;
+  border-radius: 25px;
   text-align: center;
 }
 #gates3 {
@@ -118,3 +142,5 @@ h3 {
   -webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 
 }
+
+
