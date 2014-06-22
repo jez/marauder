@@ -18,8 +18,8 @@ var coordsRelativeToElement = function(elem, ev) {
   console.log('ev: ' + JSON.stringify(ev));
   console.log('scrollTop: ' + $('body').scrollTop());
   return {
-    x: ev.pageX - offset.left,
-    y: ev.pageY - (offset.top - $('body').scrollTop()),
+    x: ev.pageX - offset.left - 15,
+    y: ev.pageY - (offset.top - $('body').scrollTop()) - 15,
     z: parseInt($(elem).attr('id').slice(5), 10)
   };
 }
@@ -47,7 +47,6 @@ var detailView = function($container, targetNode) {
   $container.removeClass("is-rotated");
   $container.css('overflow-x', 'scroll').append('<div id="footer">Back to glance view</div>');
   window.location.hash = targetNode.id;
-  $container.scrollLeft($container.width() / 4);
   return $container;
 };
 
