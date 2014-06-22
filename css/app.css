@@ -1,0 +1,10 @@
+#container {
+  overflow-y: visible;
+}
+
+.map-container {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  overflow: auto;
+}
