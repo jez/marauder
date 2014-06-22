@@ -1,0 +1,53 @@
+#map {
+  position: relative;
+  background-image: url('/gates4.png');
+  background-repeat: no-repeat;
+  width: 801;
+  height: 467;
+}
+
+#map circle {
+  fill: rgba(0, 0, 0, 0.5);
+}
+
+#map circle.callout {
+  stroke-width: 3px;
+  stroke-opacity: 0.8;
+  fill: none;
+  stroke: red;
+}
+
+#footer {
+  height: 30px;
+  width: 100%;
+  background: #bbb;
+  position: fixed;
+  bottom: 0px;
+}
+
+.footer-button {
+  height: 100%;
+  width: 25%;
+  text-align: center;
+  border-right: 1px solid #888;
+}
+
+.marker {
+  border: 3px solid #999;
+  -webkit-border-radius: 30px;
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  left:20px;
+  top:214px;
+  -webkit-animation: pulsate 1s ease-out;
+  -webkit-animation-iteration-count: infinite; 
+  opacity: 0.0
+
+}
+@-webkit-keyframes pulsate {
+  0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+  50% {opacity: 1.0;}
+  100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+
+}

@@ -1,0 +1,40 @@
+<head>
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, , minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <title>marauder</title>
+</head>
+
+<body>
+  {{> page}}
+</body>
+
+<template name="page">
+  {{#if currentUser}}
+    {{> map}}
+  {{else}}
+    {{> login}}
+  {{/if}}
+</template>
+
+<template name="login">
+  <h3>I solemnly swear that I am up to no good.</h3>
+  {{> loginButtons}}
+</template>
+
+<template name="map">
+  <h3>The map never lies.</h3>
+  <div id="map"></div>
+  <div id="footer">
+    <div id="add-button" class="footer-button">Add</div>
+    <div class="footer-button"></div>
+    <div class="footer-button"></div>
+    <div class="footer-button"></div>
+  </div>
+</template>
+
+<template name="info-popup">
+  <div class="popup">
+  </div>
+</template>

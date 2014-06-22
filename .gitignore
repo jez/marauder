@@ -60,3 +60,4 @@ node_modules
 ### Sass ###
 .sass-cache
 
+.meteor
