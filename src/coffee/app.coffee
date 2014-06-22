@@ -6,6 +6,13 @@ mapContainerTemplate =
 </div>
 '''
 
+popupTemplate =
+'''
+<div class="popup bg-<%= color %>">
+  <%= popupContent %>
+</div>
+'''
+
 toggleView = ($container, targetNode) ->
   if $container.hasClass 'detail-view'
     if targetNode.id == 'map-footer'
@@ -41,6 +48,18 @@ glanceView = ($container) ->
       width: '100%'
       height: '100%'
   $container.css 'overflow-x', 'hidden'
+
+addPopup = ($triggerNode, popupContent, color='gray') ->
+  popup = _.template popupTemplate,
+    popupContent: popupContent
+    color: color
+  $triggerNode.hammer().on 'tap', (ev) ->
+    $popup = $(popup)
+    if $('.popup').length > 0
+      $('.popup').remove()
+    $popup.css 'left', ev.gesture.center.pageX
+    $popup.css 'top', ev.gesture.center.pageY
+    $('#popups').append $popup
 
 init = ($container) ->
   $container.hammer().on 'tap', (ev) ->
