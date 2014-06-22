@@ -31,6 +31,7 @@ var getFloors = function() {
 var toggleView = function($container, targetNode) {
   if ($container.hasClass('detail-view')) {
     if (targetNode.id === 'footer') {
+      $('#topbar').html('');
       $container.toggleClass('detail-view');
       glanceView($container, targetNode);
     }
@@ -58,9 +59,8 @@ var glanceView = function($container) {
   _.forEach($('.map-container'), function(mapContainer, index) {
     var $mapContainer;
     $mapContainer = $(mapContainer);
-    console.log($mapContainer.style)
     /*return $mapContainer.css({
-      'z-index': (10 + index)
+      'z-index': (10 - index)
     });*/
   });
   return $container.css('overflow-x', 'hidden');
@@ -86,6 +86,16 @@ Template.map.rendered = function() {
   if (!self.handle) {
     init($("#container"));
     $('.map-container').hammer().on('tap', function(ev) {
+      console.log($(ev.target));
+      if ($(ev.target).hasClass('marker')) {
+        var marker = Markers.findOne($(ev.target).data('uid'));
+        if (marker.type === 'team') {
+          var popupContent = _.template('<h4>Project name: <%= project.name %></h4>', marker.info);
+          $('#topbar').html(popupContent);
+        }
+        return;
+      }
+      $('#topbar').html('');
       if($('#container').hasClass('detail-view')) {
         console.log(':: #map on tap :: about to create a marker based on the tap event');
 
@@ -117,8 +127,9 @@ Template.map.rendered = function() {
       markers.forEach(function(marker, idx, arr) {
         $marker = $('<div class="marker"></div>').css({
           top: marker.coordinates.y,
-          left: marker.coordinates.x
-        });
+          left: marker.coordinates.x,
+          "z-index": marker.coordinates.z+1
+        }).data('uid', marker._id);
         $('#gates' + marker.coordinates.z).append($marker)});
     });
   }

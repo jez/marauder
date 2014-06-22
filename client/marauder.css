@@ -146,8 +146,8 @@ html {
 .marker {
   border: 3px solid #3366FF;
   -webkit-border-radius: 30px;
-  height: 18px;
-  width: 18px;
+  height: 30px;
+  width: 30px;
   position: absolute;
   left:20px;
   top:214px;
@@ -164,6 +164,15 @@ html {
   100% {
   -webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 
+}
+
+#topbar {
+  height: 50px;
+  width: 100%;
+  background: #bbb;
+  position: fixed;
+  top: 0px;
+  z-index: 12;
 }
 
 #marker-form {
