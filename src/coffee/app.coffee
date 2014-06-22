@@ -6,12 +6,14 @@ mapContainerTemplate =
 </div>
 '''
 
-toggleView = ($container) ->
-  $container.toggleClass 'detail-view'
+toggleView = ($container, targetNode) ->
   if $container.hasClass 'detail-view'
-    glanceView $container
+    if targetNode.id == 'map-footer'
+      glanceView $container
+      $container.toggleClass 'detail-view'
   else
     detailView $container
+    $container.toggleClass 'detail-view'
 
 detailView = ($container) ->
   translateDistance = 0;
@@ -24,9 +26,10 @@ detailView = ($container) ->
       width: '200%'
       height: '200%'
   $container.css 'overflow-x', 'scroll'
-            .css '-webkit-overflow-scrolling', 'touch'
+            .append '<div id="map-footer" class="bg-white">Back to glance view</div>'
 
 glanceView = ($container) ->
+  $('#map-footer').remove()
   $container.scrollLeft 0
   _.forEach $('.map-container'), (mapContainer) ->
     $mapContainer = $ mapContainer
@@ -36,17 +39,17 @@ glanceView = ($container) ->
       width: '100%'
       height: '100%'
   $container.css 'overflow-x', 'hidden'
-            .css '-webkit-overflow-scrolling', ''
 
-$container = $('#container')
+init = ($container) ->
+  $container.hammer().on 'tap', (ev) ->
+    toggleView $container, ev.target
 
-$container.hammer().on 'tap', (ev) ->
-  toggleView $container
+  ['blue', 'green', 'yellow', 'orange', 'red', 'purple'].forEach (color, index) ->
+    $map = $ _.template(mapContainerTemplate,
+      color: color
+      index: index+1)
+    $container.append $map
 
-['blue', 'green', 'yellow', 'orange', 'red', 'purple'].forEach (color, index) ->
-  $map = $ _.template(mapContainerTemplate,
-    color: color
-    index: index+1)
-  $container.append $map
+  glanceView $container
 
-glanceView $container
+init $('#container')

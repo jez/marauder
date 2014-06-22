@@ -1,5 +1,14 @@
+body {
+  font-size: 10px;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
 #container {
   overflow-y: visible;
+  font-size: 1rem;
 }
 
 .map-container {
@@ -7,4 +16,15 @@
   height: auto;
   min-height: 300px;
   overflow: auto;
+}
+
+#map-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+
+  text-align: center;
+  font-size: 2rem;
 }
