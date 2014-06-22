@@ -72,31 +72,31 @@ html {
 
 .is-rotated #gates3 {
   z-index: 4;
-  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-6600px)translateZ(0px);
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-7000px)translateZ(0px);
 }
 .is-rotated #gates4 {
   z-index: 5;
-  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-5500px)translateZ(0px);
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-5900px)translateZ(0px);
 }
 .is-rotated #gates5 {
   z-index: 6;
-  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-4400px)translateZ(0px);
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-4800px)translateZ(0px);
 }
 .is-rotated #gates6 {
   z-index: 7;
-  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-3300px)translateZ(0px);
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-3700px)translateZ(0px);
 }
 .is-rotated #gates7 {
   z-index: 8;
-  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-2200px)translateZ(0px);
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-2600px)translateZ(0px);
 }
 .is-rotated #gates8 {
   z-index: 9;
-  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-1100px)translateZ(0px);
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-1500px)translateZ(0px);
 }
 .is-rotated #gates9 {
   z-index: 10;
-  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-0px)translateZ(0px);
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-400px)translateZ(0px);
 }
 
 .map-container {
@@ -144,7 +144,7 @@ html {
 }
 
 .marker {
-  border: 3px solid #999;
+  border: 3px solid #3366FF;
   -webkit-border-radius: 30px;
   height: 18px;
   width: 18px;
