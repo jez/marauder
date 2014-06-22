@@ -1,6 +1,6 @@
 mapContainerTemplate =
 '''
-<div class="map-container bg-<%= color %>">
+<div class="map-container bg-<%= color %>" id="map-<%= index %>">
   <h2 style="font-size: 72px; text-align: center"><%= index %></h2>
   Pork belly hella stumptown vinyl, kitsch trust fund drinking vinegar. Post-ironic asymmetrical pork belly, High Life pickled DIY Cosby sweater tofu ethnic actually bitters. Tonx biodiesel squid normcore stumptown. Normcore Kickstarter selfies gentrify church-key. Farm-to-table Williamsburg meh keytar. Hoodie post-ironic +1 synth. Banh mi before they sold out Williamsburg aesthetic fanny pack ethical squid.
 </div>
@@ -9,13 +9,13 @@ mapContainerTemplate =
 toggleView = ($container, targetNode) ->
   if $container.hasClass 'detail-view'
     if targetNode.id == 'map-footer'
-      glanceView $container
+      glanceView $container, targetNode
       $container.toggleClass 'detail-view'
   else
-    detailView $container
+    detailView $container, targetNode
     $container.toggleClass 'detail-view'
 
-detailView = ($container) ->
+detailView = ($container, targetNode) ->
   translateDistance = 0;
   _.forEach $('.map-container'), (mapContainer, index) ->
     $mapContainer = $ mapContainer
@@ -27,6 +27,8 @@ detailView = ($container) ->
       height: '200%'
   $container.css 'overflow-x', 'scroll'
             .append '<div id="map-footer" class="bg-white">Back to glance view</div>'
+  window.location.hash = targetNode.id
+  return $container
 
 glanceView = ($container) ->
   $('#map-footer').remove()

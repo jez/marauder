@@ -14,7 +14,7 @@ h1 {
 .map-container {
   width: 100%;
   height: auto;
-  min-height: 300px;
+  min-height: 500px;
   overflow: auto;
 }
 
