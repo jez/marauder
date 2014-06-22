@@ -1,5 +1,5 @@
 html {
-  background-color: #FD8700;
+  background-color: #F90;
 }
 
 #gates3 {
@@ -30,6 +30,8 @@ html {
   position: relative;
   width: 650px;
   height: 450px;
+  background: rgba(0,0,0,0.7);
+  border: 2px solid black;
 }
 
 #map circle {
@@ -49,6 +51,7 @@ html {
   background: #bbb;
   position: fixed;
   bottom: 0px;
+  z-index: 12;
 }
 
 .footer-button {

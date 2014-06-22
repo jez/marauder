@@ -7,7 +7,7 @@ var GATES6 = "gates6";
 var GATES7 = "gates7";
 var GATES8 = "gates8";
 var GATES9 = "gates9";
-var FLOORS = [GATES3, GATES4, GATES5, GATES6, GATES7, GATES8, GATES9];
+var FLOORS = [GATES9, GATES8, GATES7, GATES6, GATES5, GATES4, GATES3]
 
 var mapContainerTemplate = '<div class="map-container" id="<%= floor %>">\n  <h2><%= index %></h2></div>';
 
