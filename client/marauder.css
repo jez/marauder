@@ -2,8 +2,8 @@
   position: relative;
   background-image: url('/gates4.png');
   background-repeat: no-repeat;
-  width: 801;
-  height: 467;
+  width: 801px;
+  height: 467px;
 }
 
 #map circle {

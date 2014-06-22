@@ -40,31 +40,8 @@ Template.map.events({
         }
       }});
   },
-
-  'tapped #map': function(ev, template) {
-    console.log(':: #map on click :: about to create a marker based on the tap event');
-    var point = {
-      x: ev.gesture.center.pageX,
-      y: ev.gesture.center.pageY
-    }
-    console.log(':: #map on tap :: random point: ' + JSON.stringify(point));
-
-    Meteor.call('createMarker', {
-      type: 'team', 
-      coordinates: {
-        x: ev.gesture.center.pageX,
-      y: ev.gesture.center.pageY
-      },
-      info: {
-        project: {
-          name: 'Marauder'
-        }
-      }
-    });
-  }
 });
 
-/*
 $('#map').hammer().on('tap', function(ev) {
   // ev.stopPropagation();
 
@@ -88,9 +65,4 @@ $('#map').hammer().on('tap', function(ev) {
       }
     }
   });
-});
-*/
-
-$('#div').click(function(ev) {
-  alert('YEAH CLICKED');
 });
