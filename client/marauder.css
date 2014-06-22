@@ -1,5 +1,6 @@
 html {
   background-color: #F90;
+  -webkit-transform-style: preseve-3d;
 }
 
 .header {
@@ -51,38 +52,38 @@ html {
 }
 
 .is-rotated #gates3 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-4800px);
+  z-index: 4;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-6600px)translateZ(0px);
 }
 .is-rotated #gates4 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-4000px);
+  z-index: 5;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-5500px)translateZ(0px);
 }
 .is-rotated #gates5 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-3200px);
+  z-index: 6;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-4400px)translateZ(0px);
 }
 .is-rotated #gates6 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-2400px);
+  z-index: 7;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-3300px)translateZ(0px);
 }
 .is-rotated #gates7 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-1600px);
+  z-index: 8;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-2200px)translateZ(0px);
 }
 .is-rotated #gates8 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-800px);
+  z-index: 9;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-1100px)translateZ(0px);
 }
 .is-rotated #gates9 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-0px);
+  z-index: 10;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-0px)translateZ(0px);
 }
 
 .map-container {
   background-repeat: no-repeat;
   background-position: center;
-  perspective: 100000;
+  -webkit-perspective: 10000px;
   height: 350px;
   width: 1300px;
   margin-top: -25px;
@@ -90,6 +91,9 @@ html {
   -webkit-transform: rotateX(0deg) scaleX(1) scaleY(1) translateX(-390px);
   -webkit-filter: drop-shadow(0px 4px 1px rgba(0,0,0,0.4));
   transition: all 1s ease-in-out;
+
+  position: relative;
+
 }
 
 

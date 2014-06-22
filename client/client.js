@@ -60,9 +60,9 @@ var glanceView = function($container) {
     var $mapContainer;
     $mapContainer = $(mapContainer);
     console.log($mapContainer.style)
-    return $mapContainer.css({
-      'z-index': (10 - index)
-    });
+    /*return $mapContainer.css({
+      'z-index': (10 + index)
+    });*/
   });
   return $container.css('overflow-x', 'hidden');
 };
