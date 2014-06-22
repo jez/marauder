@@ -52,31 +52,31 @@ html {
 
 .is-rotated #gates3 {
 
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-350px);
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-4800px);
 }
 .is-rotated #gates4 {
 
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-300px);
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-4000px);
 }
 .is-rotated #gates5 {
 
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-250px);
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-3200px);
 }
 .is-rotated #gates6 {
 
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-200px);
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-2400px);
 }
 .is-rotated #gates7 {
 
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-150px);
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-1600px);
 }
 .is-rotated #gates8 {
 
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-100px);
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-800px);
 }
 .is-rotated #gates9 {
 
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-50px);
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-0px);
 }
 
 .map-container {
@@ -142,5 +142,3 @@ html {
   -webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 
 }
-
-
