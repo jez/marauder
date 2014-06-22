@@ -18,7 +18,6 @@ var coordsRelativeToElement = function(elem, ev) {
   console.log('ev: ' + JSON.stringify(ev));
   console.log('scrollTop: ' + $('body').scrollTop());
   return {
-
     x: ev.pageX - offset.left,
     y: ev.pageY - (offset.top - $('body').scrollTop()),
     z: parseInt($(elem).attr('id').slice(5), 10)
@@ -96,14 +95,17 @@ Template.map.rendered = function() {
           type: 'team',
           coordinates: point,
           info: {
-            project: {
-              name: 'Marauder'
-            }
+            project: Session.get('project')
           }
         });
       }
     });
     self.handle = Deps.autorun(function() {
+      if(Session.get('project') == null) {
+        $('#marker-form').css('display', 'block');
+      }
+
+
       console.log(':: Template.map.rendered :: re-rendering the map');
 
       $('.map-container').each(function(idx, elem) {
@@ -122,24 +124,12 @@ Template.map.rendered = function() {
 }
 
 Template.map.events({
-  'click #add-button': function(ev, template) {
-    console.log(':: click #add-button :: creating and and inserting a random marker ');
-    var point = {
-      x: Math.round(Math.random() * 801),
-      y: Math.round(Math.random() * 467)
-    }
-    console.log(':: click #add-button :: random point: ' + JSON.stringify(point));
+  'click #submit': function(ev, template) {
+    var project = {};
+    project.name = $('#project-name-input').val();
+    project.description = $('#project-description-input').val();
 
-    Meteor.call('createMarker', {
-      type: 'team',
-      coordinates: {
-        x: Math.round(Math.random() * 801),
-        y: Math.round(Math.random() * 467)
-      },
-      info: {
-        project: {
-          name: 'Marauder'
-        }
-      }});
-  },
+    Session.set('project', project);
+    $('#marker-form').css('display', 'none');
+  }
 });

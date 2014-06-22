@@ -1,6 +1,26 @@
 html {
   background-color: #F90;
+  margin: 0px;
+  padding: 0px;
 }
+.button {
+  width: 50%;
+  background: #555;
+  display: inline-block;
+  margin: 0px;
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+.button:active {
+  background: #444;
+}
+
 h3 {
   text-align: center;
   margin: 10px;
@@ -96,4 +116,33 @@ h3 {
 
 }
 
+#marker-form {
+  z-index: 20;
+  background: rgba(0,0,0,0.3);
+  display: none;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
 
+input {
+  width: 100%;
+  text-align: center;
+  background: #666;
+  border: 1px solid #555;
+  color: white;
+  font-size: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type="checkbox"] {
+  height: 50px;
+  background: #555;
+}
