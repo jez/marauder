@@ -13,9 +13,9 @@
 
 <template name="page">
   {{#if currentUser}}
+    <h3>The map never lies.</h3>
     {{> map}}
   {{else}}
-    <h3>The map never lies.</h3>
     {{> login}}
   {{/if}}
 </template>
