@@ -96,7 +96,8 @@ Template.map.rendered = function() {
           type: 'team',
           coordinates: point,
           info: {
-            project: Session.get('project')
+            project: Session.get('project'),
+            needsHelp: false
           }
         });
       }

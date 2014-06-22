@@ -34,7 +34,14 @@ var CoordinatePair = Match.ObjectIncluding({
 });
 
 var Project = Match.ObjectIncluding({
-  name: String
+  name: String,
+  description: String
+});
+
+var Ticket = Match.ObjectIncluding({
+  timestamp: Date,
+  technologies: String,
+  description: String
 });
 
 Meteor.methods({
@@ -54,6 +61,8 @@ Meteor.methods({
       case TEAM:
         check(params.info, {
           project: Project,
+          needsHelp: Boolean,
+          ticket: Match.Optional(Ticket)
         });
         break;
     }
