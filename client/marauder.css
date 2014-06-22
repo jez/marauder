@@ -26,20 +26,48 @@ h3 {
   background-image: url('/gates9.svg');
 }
 
+.is-rotated #gates3 {
+
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-350px);
+}
+.is-rotated #gates4 {
+
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-300px);
+}
+.is-rotated #gates5 {
+
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-250px);
+}
+.is-rotated #gates6 {
+
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-200px);
+}
+.is-rotated #gates7 {
+
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-150px);
+}
+.is-rotated #gates8 {
+
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-100px);
+}
+.is-rotated #gates9 {
+
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-50px);
+}
+
 .map-container {
   background-repeat: no-repeat;
   background-position: center;
   perspective: 100000;
   height: 350px;
   width: 1300px;
+  margin-top: -25px;
+
   -webkit-transform: rotateX(0deg) scaleX(1) scaleY(1) translateX(-390px);
   -webkit-filter: drop-shadow(0px 4px 1px rgba(0,0,0,0.4));
   transition: all 1s ease-in-out;
 }
 
-.is-rotated .map-container {
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px);
-}
 
 #map circle {
   fill: rgba(0, 0, 0, 0.5);
@@ -83,8 +111,10 @@ h3 {
 }
 
 @-webkit-keyframes pulsate {
-  0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+  0% {
+  -webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
   50% {opacity: 1.0;}
-  100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+  100% {
+  -webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 
 }
