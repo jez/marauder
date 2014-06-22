@@ -9,13 +9,13 @@ var GATES8 = "gates8";
 var GATES9 = "gates9";
 var FLOORS = [GATES9, GATES8, GATES7, GATES6, GATES5, GATES4, GATES3]
 
-var mapContainerTemplate = '<div class="map-container" id="<%= floor %>">\n  <h2><%= index %></h2></div>';
+var mapContainerTemplate = '<div class="map-container" id="<%= floor %>">\n  </div>';
 
 
 var coordsRelativeToElement = function(elem, ev) {
   var offset = $(elem).offset();
   return {
-    x: ev.pageX - offset.left, 
+    x: ev.pageX - offset.left,
     y: ev.pageY - offset.top
   };
 }
@@ -39,36 +39,22 @@ var toggleView = function($container, targetNode) {
 var detailView = function($container, targetNode) {
   var translateDistance;
   translateDistance = 0;
-  _.forEach($('.map-container'), function(mapContainer, index) {
-    var $mapContainer;
-    $mapContainer = $(mapContainer);
-    translateDistance += $mapContainer.height() / 4;
-    return $mapContainer.transition({
-      perspective: 500,
-      rotateX: 0,
-      width: '650px',
-      height: '450px',
-      top: '0px'
-    });
-  });
+  $container.removeClass("is-rotated");
   $container.css('overflow-x', 'scroll').append('<div id="footer">Back to glance view</div>');
   window.location.hash = targetNode.id;
   return $container;
 };
 
- 
+
 var glanceView = function($container) {
   $('#footer').remove();
   $container.scrollLeft(0);
+  $container.addClass("is-rotated")
   _.forEach($('.map-container'), function(mapContainer, index) {
     var $mapContainer;
     $mapContainer = $(mapContainer);
-    return $mapContainer.transition({
-      perspective: 500,
-      rotateX: 60,
-      width: '325px',
-      height: '225px',
-      top: "" + (-150 * index) + "px",
+    console.log($mapContainer.style)
+    return $mapContainer.css({
       'z-index': (10 - index)
     });
   });
@@ -128,7 +114,8 @@ Template.map.rendered = function() {
           top: marker.coordinates.y,
           left: marker.coordinates.x
         });
-        $('#map').append($marker)});
+        $('#map').append($marker)
+      });
     });
   }
 }
@@ -159,4 +146,3 @@ Template.map.events({
 Meteor.startup(function() {
 
 });
-
