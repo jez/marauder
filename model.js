@@ -29,7 +29,8 @@ var Types = Match.Where(function (type) {
 
 var CoordinatePair = Match.ObjectIncluding({
   x: Number,
-  y: Number
+  y: Number,
+  z: Number
 });
 
 var Project = Match.ObjectIncluding({

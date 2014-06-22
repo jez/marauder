@@ -2,6 +2,10 @@ html {
   background-color: #F90;
 }
 
+h3 {
+  text-align: center;
+}
+
 #gates3 {
   position: relative;
   background-image: url('/gates3.svg');

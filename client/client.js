@@ -9,14 +9,18 @@ var GATES8 = "gates8";
 var GATES9 = "gates9";
 var FLOORS = [GATES9, GATES8, GATES7, GATES6, GATES5, GATES4, GATES3]
 
-var mapContainerTemplate = '<div class="map-container" id="<%= floor %>">\n  <h2><%= index %></h2></div>';
+var mapContainerTemplate = '<div class="map-container" id="<%= floor %>">\n</div>';
 
 
 var coordsRelativeToElement = function(elem, ev) {
   var offset = $(elem).offset();
+  console.log('offset: ' + JSON.stringify(offset));
+  console.log('ev: ' + JSON.stringify(ev));
+  console.log('scrollTop: ' + $('body').scrollTop());
   return {
     x: ev.pageX - offset.left, 
-    y: ev.pageY - offset.top
+    y: ev.pageY - (offset.top - $('body').scrollTop()),
+    z: parseInt($(elem).attr('id').slice(5), 10)
   };
 }
 
@@ -27,12 +31,12 @@ var getFloors = function() {
 var toggleView = function($container, targetNode) {
   if ($container.hasClass('detail-view')) {
     if (targetNode.id === 'footer') {
+      $container.toggleClass('detail-view');
       glanceView($container, targetNode);
-      return $container.toggleClass('detail-view');
     }
   } else {
+    $container.toggleClass('detail-view');
     detailView($container, targetNode);
-    return $container.toggleClass('detail-view');
   }
 };
 
@@ -76,16 +80,13 @@ var glanceView = function($container) {
 };
 
 var init = function($container) {
-  console.log('initializing');
   $container.hammer().on('tap', function(ev) {
     return toggleView($container, ev.target);
   });
   FLOORS.forEach(function(floor, index) {
-    console.log('logging:', floor);
     var $map;
     $map = $(_.template(mapContainerTemplate, {
       floor: floor,
-      index: index + 3
     }));
     $container.append($map);
   });
@@ -93,42 +94,42 @@ var init = function($container) {
   glanceView($container);
 }
 
-Template.map.created = function() {
-  $('#map').hammer().on('tap', function(ev) {
-
-    // console.log('hello, world');
-    console.log(':: #map on tap :: about to create a marker based on the tap event');
-    var point = coordsRelativeToElement('#map', ev.gesture.center);
-    console.log(':: #map on tap :: random point: ' + JSON.stringify(point));
-
-    Meteor.call('createMarker', {
-      type: 'team',
-      coordinates: point,
-      info: {
-        project: {
-          name: 'Marauder'
-        }
-      }
-    });
-  });
-}
-
 Template.map.rendered = function() {
   var self = this;
   if (!self.handle) {
     init($("#container"));
+    $('.map-container').hammer().on('tap', function(ev) {
+      if($('#container').hasClass('detail-view')) {
+        console.log(':: #map on tap :: about to create a marker based on the tap event');
+
+        var point = coordsRelativeToElement(ev.target, ev.gesture.center);
+        console.log(':: #map on tap :: random point: ' + JSON.stringify(point));
+
+        Meteor.call('createMarker', {
+          type: 'team',
+          coordinates: point,
+          info: {
+            project: {
+              name: 'Marauder'
+            }
+          }
+        });
+      }
+    });
     self.handle = Deps.autorun(function() {
       console.log(':: Template.map.rendered :: re-rendering the map');
-      $('#map').children('.marker').remove();
+
+      $('.map-container').each(function(idx, elem) {
+        $(this).children('.marker').remove();
+      });
 
       var markers = Markers.find().fetch();
-      console.log(markers);
       markers.forEach(function(marker, idx, arr) {
         $marker = $('<div class="marker"></div>').css({
           top: marker.coordinates.y,
           left: marker.coordinates.x
         });
-        $('#map').append($marker)});
+        $('#gates' + marker.coordinates.z).append($marker)});
     });
   }
 }
@@ -155,8 +156,3 @@ Template.map.events({
       }});
   },
 });
-
-Meteor.startup(function() {
-
-});
-
