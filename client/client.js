@@ -41,7 +41,7 @@ Template.map.events({
       }});
   },
 
-  'click #map': function(ev, template) {
+  'tapped #map': function(ev, template) {
     console.log(':: #map on click :: about to create a marker based on the tap event');
     var point = {
       x: ev.gesture.center.pageX,
