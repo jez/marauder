@@ -13,7 +13,7 @@
 
 <template name="page">
   {{#if currentUser}}
-    <h3>The map never lies.</h3>
+    <h1 class="header">The map never lies.</h1>
     {{> map}}
   {{else}}
     {{> login}}
@@ -21,7 +21,7 @@
 </template>
 
 <template name="login">
-  <h1 class="login-header">“I solemnly swear that I am up to no good.”</h1>
+  <h1 class="header login-header">“I solemnly swear that I am up to no good.”</h1>
   {{> loginButtons}}
 </template>
 
