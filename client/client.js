@@ -46,6 +46,7 @@ var detailView = function($container, targetNode) {
   $container.removeClass("is-rotated");
   $container.css('overflow-x', 'scroll').append('<div id="footer">Back to glance view</div>');
   window.location.hash = targetNode.id;
+  $container.scrollLeft($container.width() / 4);
   return $container;
 };
 
