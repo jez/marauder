@@ -4,6 +4,13 @@ html {
 
 h3 {
   text-align: center;
+  margin: 10px;
+}
+
+#login-buttons {
+  padding: 20px;
+  background: #333;
+  color: white;
 }
 
 #gates3 {
@@ -84,3 +91,5 @@ h3 {
   100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 
 }
+
+
