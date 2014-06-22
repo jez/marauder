@@ -1,9 +1,35 @@
-#map {
+html {
+  background-color: #FD8700;
+}
+
+#gates3 {
   position: relative;
-  background-image: url('/gates4.png');
+  background-image: url('/gates3.svg');
   background-repeat: no-repeat;
-  width: 801px;
-  height: 467px;
+}
+
+#gates4 {
+  position: relative;
+  background-image: url('/gates4.svg');
+  background-repeat: no-repeat;
+}
+
+#gates5 {
+  position: relative;
+  background-image: url('/gates5.svg');
+  background-repeat: no-repeat;
+}
+
+#gates6 {
+  position: relative;
+  background-image: url('/gates6.svg');
+  background-repeat: no-repeat;
+}
+
+.map-container {
+  position: relative;
+  width: 650px;
+  height: 450px;
 }
 
 #map circle {

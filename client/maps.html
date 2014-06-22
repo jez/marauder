@@ -4,6 +4,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
   <title>marauder</title>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.9/jquery.transit.min.js"></script>
 </head>
 
 <body>
@@ -14,6 +15,7 @@
   {{#if currentUser}}
     {{> map}}
   {{else}}
+    <h3>The map never lies.</h3>
     {{> login}}
   {{/if}}
 </template>
@@ -24,14 +26,8 @@
 </template>
 
 <template name="map">
-  <h3>The map never lies.</h3>
-  <div id="map"></div>
-  <div id="footer">
-    <div id="add-button" class="footer-button">Add</div>
-    <div class="footer-button"></div>
-    <div class="footer-button"></div>
-    <div class="footer-button"></div>
-  </div>
+  <div id="container"></div>
+  <div id="footer"></div>
 </template>
 
 <template name="info-popup">
