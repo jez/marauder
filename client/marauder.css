@@ -123,8 +123,8 @@ html {
 .marker {
   border: 3px solid #999;
   -webkit-border-radius: 30px;
-  height: 18px;
-  width: 18px;
+  height: 30px;
+  width: 30px;
   position: absolute;
   left:20px;
   top:214px;
@@ -143,4 +143,11 @@ html {
 
 }
 
-
+#topbar {
+  height: 50px;
+  width: 100%;
+  background: #bbb;
+  position: fixed;
+  top: 0px;
+  z-index: 12;
+}
