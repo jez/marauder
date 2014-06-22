@@ -1,7 +1,6 @@
 html {
   background-color: #F90;
 }
-
 h3 {
   text-align: center;
   margin: 10px;
@@ -12,37 +11,41 @@ h3 {
   background: #333;
   color: white;
 }
-
 #gates3 {
-  position: relative;
   background-image: url('/gates3.svg');
-  background-repeat: no-repeat;
 }
-
 #gates4 {
-  position: relative;
   background-image: url('/gates4.svg');
-  background-repeat: no-repeat;
 }
-
 #gates5 {
-  position: relative;
   background-image: url('/gates5.svg');
-  background-repeat: no-repeat;
 }
-
 #gates6 {
-  position: relative;
   background-image: url('/gates6.svg');
-  background-repeat: no-repeat;
+}
+#gates7 {
+  background-image: url('/gates7.svg');
+}
+#gates8 {
+  background-image: url('/gates8.svg');
+}
+#gates9 {
+  background-image: url('/gates9.svg');
 }
 
 .map-container {
-  position: relative;
-  width: 650px;
-  height: 450px;
-  background: rgba(0,0,0,0.7);
-  border: 2px solid black;
+  background-repeat: no-repeat;
+  background-position: center;
+  perspective: 100000;
+  height: 350px;
+  width: 1300px;
+  -webkit-transform: rotateX(0deg) scaleX(1) scaleY(1) translateX(-390px);
+  -webkit-filter: drop-shadow(0px 4px 1px rgba(0,0,0,0.4));
+  transition: all 1s ease-in-out;
+}
+
+.is-rotated .map-container {
+  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px);
 }
 
 #map circle {
@@ -81,10 +84,11 @@ h3 {
   left:20px;
   top:214px;
   -webkit-animation: pulsate 1s ease-out;
-  -webkit-animation-iteration-count: infinite; 
+  -webkit-animation-iteration-count: infinite;
   opacity: 0.0
 
 }
+
 @-webkit-keyframes pulsate {
   0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
   50% {opacity: 1.0;}
