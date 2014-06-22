@@ -1,5 +1,25 @@
 html {
   background-color: #F90;
+  -webkit-transform-style: preseve-3d;
+  margin: 0px;
+  padding: 0px;
+}
+.button {
+  width: 50%;
+  background: #555;
+  display: inline-block;
+  margin: 0px;
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+.button:active {
+  background: #444;
 }
 
 .header {
@@ -51,38 +71,38 @@ html {
 }
 
 .is-rotated #gates3 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-350px);
+  z-index: 4;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-6600px)translateZ(0px);
 }
 .is-rotated #gates4 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-300px);
+  z-index: 5;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-5500px)translateZ(0px);
 }
 .is-rotated #gates5 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-250px);
+  z-index: 6;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-4400px)translateZ(0px);
 }
 .is-rotated #gates6 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-200px);
+  z-index: 7;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-3300px)translateZ(0px);
 }
 .is-rotated #gates7 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-150px);
+  z-index: 8;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-2200px)translateZ(0px);
 }
 .is-rotated #gates8 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-100px);
+  z-index: 9;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-1100px)translateZ(0px);
 }
 .is-rotated #gates9 {
-
-  -webkit-transform: rotateX(50deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-50px);
+  z-index: 10;
+  -webkit-transform:rotateX(60deg) scaleX(0.5) scaleY(0.5) translateX(-950px) translateY(-0px)translateZ(0px);
 }
 
 .map-container {
   background-repeat: no-repeat;
   background-position: center;
-  perspective: 100000;
+  -webkit-perspective: 10000px;
   height: 350px;
   width: 1300px;
   margin-top: -25px;
@@ -90,6 +110,9 @@ html {
   -webkit-transform: rotateX(0deg) scaleX(1) scaleY(1) translateX(-390px);
   -webkit-filter: drop-shadow(0px 4px 1px rgba(0,0,0,0.4));
   transition: all 1s ease-in-out;
+
+  position: relative;
+
 }
 
 
@@ -150,4 +173,35 @@ html {
   position: fixed;
   top: 0px;
   z-index: 12;
+}
+
+#marker-form {
+  z-index: 20;
+  background: rgba(0,0,0,0.3);
+  display: none;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+input {
+  width: 100%;
+  text-align: center;
+  background: #666;
+  border: 1px solid #555;
+  color: white;
+  font-size: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type="checkbox"] {
+  height: 50px;
+  background: #555;
 }

@@ -13,7 +13,6 @@
 
 <template name="page">
   {{#if currentUser}}
-    <h1 class="header">The map never lies.</h1>
     {{> map}}
   {{else}}
     {{> login}}
@@ -26,10 +25,19 @@
 </template>
 
 <template name="map">
-  <div id="header"></div>
+  <div class="button" id="addmarker">Add</div>
+  <div class="button" id="removemarker">Remove</div>
   <div id="topbar"></div>
+  <h1 class="header">The map never lies.</h1>
   <div id="container"></div>
   <div id="footer"></div>
+  <div id="marker-form">
+    <input id="project-name-input" name="project-name" placeholder="Project name">
+    <input id="project-description-input" name="project-description" placeholder="Project description">
+    <div class="button" id="cancel">Cancel</div>
+    <div class="button" id="submit">Add</div>
+  </div>
+
 </template>
 
 <template name="info-popup">
