@@ -23,15 +23,15 @@ Template.map.events({
   'click #add-button': function(ev, template) {
     console.log(':: click #add-button :: creating and and inserting a random marker ');
     var point = {
-      x: Math.round(Math.random() * 801), 
+      x: Math.round(Math.random() * 801),
       y: Math.round(Math.random() * 467)
     }
     console.log(':: click #add-button :: random point: ' + JSON.stringify(point));
 
     Meteor.call('createMarker', {
-      type: 'team', 
+      type: 'team',
       coordinates: {
-        x: Math.round(Math.random() * 801), 
+        x: Math.round(Math.random() * 801),
         y: Math.round(Math.random() * 467)
       },
       info: {
@@ -42,27 +42,29 @@ Template.map.events({
   },
 });
 
-$('#map').hammer().on('tap', function(ev) {
-  // ev.stopPropagation();
+$(document).ready(function () {
+  $('#map').hammer().on('tap', function(ev) {
 
-  // console.log('hello, world');
-  console.log(':: #map on tap :: about to create a marker based on the tap event');
-  var point = {
-    x: ev.gesture.center.pageX,
-    y: ev.gesture.center.pageY
-  }
-  console.log(':: #map on tap :: random point: ' + JSON.stringify(point));
-
-  Meteor.call('createMarker', {
-    type: 'team', 
-    coordinates: {
+    // console.log('hello, world');
+    console.log(':: #map on tap :: about to create a marker based on the tap event');
+    var point = {
       x: ev.gesture.center.pageX,
-    y: ev.gesture.center.pageY
-    },
-    info: {
-      project: {
-        name: 'Marauder'
-      }
+      y: ev.gesture.center.pageY
     }
+    console.log(':: #map on tap :: random point: ' + JSON.stringify(point));
+
+    Meteor.call('createMarker', {
+      type: 'team',
+      coordinates: {
+        x: ev.gesture.center.pageX,
+      y: ev.gesture.center.pageY
+      },
+      info: {
+        project: {
+          name: 'Marauder'
+        }
+      }
+    });
   });
 });
+
